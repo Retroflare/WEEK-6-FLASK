@@ -1,0 +1,19 @@
+{% extends 'base.jinja' %}
+
+{% block content %}
+
+    <h1>Welcome to Flare's fragrance Application!</h1>
+    <h4>Here you can look at flare's top 5 favorite fragrances</h4>
+    <h4>You can also search for the best aromas provided in the database</h4>
+
+     {% if chosen %}
+        <p>{{ chosen }}</p>
+    {% else %}
+        <h5>Undecided</h5>
+    {% endif %}
+{% endblock content %}
+
+
+
+
+
