@@ -1,0 +1,16 @@
+{% extends 'base.jinja' %}
+
+{% block content %}
+
+    <div class="row mx-0 my-5">
+        {% for fragrance in favorite_fragrances %}
+            <div class="card text-center mx-auto" style="width: 18rem;">
+                <img src="{{image['image']}}" class="card-img-top" alt="image">
+                <div class="card-body">
+                <h5 class="card-title">{{fragrance['name']}}</h5>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

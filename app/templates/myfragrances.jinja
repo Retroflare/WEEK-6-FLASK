@@ -1,0 +1,38 @@
+{% extends 'base.jinja' %}
+
+{% block content %}
+
+    <main class="flex justify-content-center">
+        {% for pool_fragrance_id,fragrance_info in all_fragrance.items() %}
+            <div class="card" style="width: 24rem;">
+                <a href="{{ url_for('myfragrancePage', pool_fragrance_id=pool_fragrance_id) }}" ><img src="{{fragrance_info['img_url']}}" class="card-img-top" alt="fragrance avatar"></a>
+                <div class="card-body mx-auto position-relative">
+                    <h3 class="card-title text-center">#{{fragrance_info['fragrance_id']}} - {{fragrance_info['fragrance_name']}}</h3>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <div class="row">
+                        <div class="col pe-0">
+                            {% if fragrance_info['longevity1'] != '' %}
+                                <li class="list-group-item">Ability 1:</li>
+                            {% endif %}
+                            {% if fragrance_info['logevity2'] != '' %}
+                                <li class="list-group-item">Ability 2:</li>
+                            {% endif %}
+                                <li class="list-group-item">Base notes:</li>
+                                <li class="list-group-item"> Base Stat:</li>
+                                <li class="list-group-item">longevity Stat:</li>
+                                <li class="list-group-item">silage Stat:</li>
+                        </div>
+                        <div class="col ps-0">
+                            {% if fragrance_info['longevity1'] != '' %}
+                                <li class="list-group-item">{{ fragrance_info['ability1'] }}</li>
+                            {% endif %}
+                            {% if fragrance_info['longevity2'] != '' %}
+                                <li class="list-group-item">{{ fragrance_info['ability2'] }}</li>
+                            {% endif %}
+                                <li class="list-group-item">{{ fragrance_info['juniper_berry'] }}</li>
+                                <li class="list-group-item">{{ fragrance_info['rose_base_stat'] }}</li>
+                                <li class="list-group-item">{{ fragrance_info['oud_base_stat'] }}</li>
+                                <li class="list-group-item">{{ fragrance_info['vanilla_base_stat'] }}</li>
+                        </div>
+                    </div>

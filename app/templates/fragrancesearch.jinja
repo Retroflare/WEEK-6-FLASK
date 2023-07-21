@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>This is the fragrance Search Page</h1>
+<br/>
+
+<div class="row mx-auto">
+    <div class="col">
+        <form class="col-6 my-auto me-0" action="/pokemon" method="POST">
+            {{ form.hidden_tag() }}
+
+            {{ form.fragrancename(class='form-control', placeholder='Please Enter fragrance Name Here') }}
+            {{ form.submit(class='btn-primary') }}
+        </form>
+    </div>
+
+    <div class="col">
+        {% if fragrance_data %}
+            <div class="card" style="width: 24rem;">
+                <img src="{{fragrance_data['img']}}" class="card-img-top" alt="poke avatar">
+                <div class="card-body mx-auto position-relative">
+                    <h3 class="card-title text-center">#{{fragrance_data['fragrance #']}} - {{fragrance_data['name']}}</h3>
+                    {% if current_user.is_authenticated %}
+                        <a href="{{ url_for('savefragrance') }}" class="btn btn-secondary position-relative start-50 translate-middle-x">Catch {{pokemon_data['name']}}!</a>
+                    {% endif %}
+                </div>
+                <ul class="list-group list-group-flush">
+                    <div class="row">
+                        <div class="col pe-0">
+                            {% for ability in pokemon_data['abilities']%}
+                                <li class="list-group-item">{{ ability }}:</li>
+                            {% endfor %}
+                                <li class="list-group-item">Base Experience:</li>
+                                <li class="list-group-item">HP Base Stat:</li>
+                                <li class="list-group-item">Attack Base Stat:</li>
+                                <li class="list-group-item">Defense Base Stat:</li>
+                        </div>
+                        <div class="col ps-0">
+                            {% for ability in fragrance_data['abilities']%}
+                                <li class="list-group-item">{{ pokemon_data['abilities'][ability] }}</li>
+                            {% endfor %}
+                                <li class="list-group-item">{{ fragrance_data['base experience'] }}</li>
+                                <li class="list-group-item">{{ fragrance_data['hp base stat'] }}</li>
+                                <li class="list-group-item">{{ fragrance_data['attack base stat'] }}</li>
+                                <li class="list-group-item">{{ fragrance_data['defense base stat'] }}</li>
+                        </div>
+                    </div>
+                </ul>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
