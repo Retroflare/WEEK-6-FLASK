@@ -18,7 +18,7 @@
     <div class="col">
         {% if fragrance_data %}
             <div class="card" style="width: 24rem;">
-                <img src="{{fragrance_data['img']}}" class="card-img-top" alt="poke avatar">
+                <img src="{{fragrance_data['img']}}" class="card-img-top" alt="fragrance image">
                 <div class="card-body mx-auto position-relative">
                     <h3 class="card-title text-center">#{{fragrance_data['fragrance #']}} - {{fragrance_data['name']}}</h3>
                     {% if current_user.is_authenticated %}
@@ -28,22 +28,22 @@
                 <ul class="list-group list-group-flush">
                     <div class="row">
                         <div class="col pe-0">
-                            {% for ability in pokemon_data['abilities']%}
+                            {% for ability in fragrance_data['abilities']%}
                                 <li class="list-group-item">{{ ability }}:</li>
                             {% endfor %}
-                                <li class="list-group-item">Base Experience:</li>
-                                <li class="list-group-item">HP Base Stat:</li>
-                                <li class="list-group-item">Attack Base Stat:</li>
-                                <li class="list-group-item">Defense Base Stat:</li>
+                                <li class="list-group-item">Base oud:</li>
+                                <li class="list-group-item"> Base pineapple:</li>
+                                <li class="list-group-item">iso e:</li>
+                                <li class="list-group-item">juniper berry:</li>
                         </div>
                         <div class="col ps-0">
-                            {% for ability in fragrance_data['abilities']%}
-                                <li class="list-group-item">{{ pokemon_data['abilities'][ability] }}</li>
+                            {% for ability in fragrance_data['longevity']%}
+                                <li class="list-group-item">{{ fragrance_data['longevity'][ability] }}</li>
                             {% endfor %}
-                                <li class="list-group-item">{{ fragrance_data['base experience'] }}</li>
-                                <li class="list-group-item">{{ fragrance_data['hp base stat'] }}</li>
-                                <li class="list-group-item">{{ fragrance_data['attack base stat'] }}</li>
-                                <li class="list-group-item">{{ fragrance_data['defense base stat'] }}</li>
+                                <li class="list-group-item">{{ fragrance_data['base oud'] }}</li>
+                                <li class="list-group-item">{{ fragrance_data['base pinepple'] }}</li>
+                                <li class="list-group-item">{{ fragrance_data['iso e'] }}</li>
+                                <li class="list-group-item">{{ fragrance_data['vanilla burbon'] }}</li>
                         </div>
                     </div>
                 </ul>
